@@ -28,6 +28,6 @@ do
     --pred_len $pred_len \
     --enc_in 1 \
     --des 'Exp' \
-    --itr 1 --batch_size 32 --learning_rate 0.005 --feature S >logs/LongForecasting/$seed/$model_name'_'fS_ETTh2_336_$pred_len.log
+    --itr 1 --batch_size 32 --learning_rate 0.005 --feature S >logs/LongForecasting/$model_name'_'fS_ETTh2_336_$pred_len.log
   done
 done
