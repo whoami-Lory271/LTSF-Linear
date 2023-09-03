@@ -292,7 +292,7 @@ class Exp_Main(Exp_Basic):
         print('mse:{}, mae:{}'.format(mse, mae))
         f = open("result.txt", 'a')
         f.write(setting + "  \n")
-        f.write(json.dump({'mse': mse, 'mae': mae}))
+        f.write(json.dumps({'mse': mse, 'mae': mae}))
         f.write('\n')
         f.write('\n')
         f.close()
