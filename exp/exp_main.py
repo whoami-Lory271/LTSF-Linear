@@ -31,7 +31,7 @@ class Exp_Main(Exp_Basic):
             'Informer': Informer,
             'DLinear': DLinear,
             'NLinear': NLinear,
-            'NLinear': Linear,
+            'Linear': Linear,
         }
         model = model_dict[self.args.model].Model(self.args).float()
 
