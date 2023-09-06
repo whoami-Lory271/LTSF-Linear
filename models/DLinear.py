@@ -37,7 +37,7 @@ class series_decomp(nn.Module):
 
 class Model(nn.Module):
     """
-    Decomposition-Linear
+    Decomposition-NLinear
     """
     def __init__(self, configs):
         super(Model, self).__init__()

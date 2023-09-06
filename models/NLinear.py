@@ -5,7 +5,7 @@ import numpy as np
 
 class Model(nn.Module):
     """
-    Normalization-Linear
+    Normalization-NLinear
     """
     def __init__(self, configs):
         super(Model, self).__init__()
@@ -13,7 +13,7 @@ class Model(nn.Module):
         self.pred_len = configs.pred_len
         
         # Use this line if you want to visualize the weights
-        # self.Linear.weight = nn.Parameter((1/self.seq_len)*torch.ones([self.pred_len,self.seq_len]))
+        # self.NLinear.weight = nn.Parameter((1/self.seq_len)*torch.ones([self.pred_len,self.seq_len]))
         self.channels = configs.enc_in
         self.individual = configs.individual
         if self.individual:
