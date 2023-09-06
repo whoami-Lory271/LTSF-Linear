@@ -25,8 +25,13 @@ class Model(nn.Module):
 
     def forward(self, x):
         # x: [Batch, Input length, Channel]
-        seq_last = x[:,-1:,:].detach()
-        x = x - seq_last
+        # seq_last = x[:,-1:,:].detach()
+        # x = x - seq_last
+        # Normalization
+        mean_x = x.mean(1, keepdim=True).detach() # B x 1 x E
+        x = x - mean_x
+        std_x = torch.sqrt(torch.var(x, dim=1, keepdim=True, unbiased=False) + 1e-5).detach() # B x 1 x E
+        x = x / std_x
         if self.individual:
             output = torch.zeros([x.size(0),self.pred_len,x.size(2)],dtype=x.dtype).to(x.device)
             for i in range(self.channels):
@@ -34,5 +39,7 @@ class Model(nn.Module):
             x = output
         else:
             x = self.Linear(x.permute(0,2,1)).permute(0,2,1)
-        x = x + seq_last
+        # x = x + seq_last
+        # De-normalization
+        x = x * std_x + mean_x
         return x # [Batch, Output length, Channel]
