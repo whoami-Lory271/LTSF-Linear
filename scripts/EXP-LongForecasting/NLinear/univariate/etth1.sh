@@ -28,6 +28,7 @@ do
     --pred_len $pred_len \
     --enc_in 1 \
     --des 'Exp' \
+    --individual \
     --itr 1 --batch_size 32 --feature S --learning_rate 0.005 >logs/LongForecasting/$model_name'_'fS_ETTh1_336_$pred_len.log
   done
 done
