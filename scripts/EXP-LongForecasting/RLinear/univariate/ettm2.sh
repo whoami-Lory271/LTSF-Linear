@@ -9,7 +9,7 @@ fi
 if [ ! -d "./logs/LongForecasting/univariate" ]; then
     mkdir ./logs/LongForecasting/univariate
 fi
-model_name=NLinear
+model_name=RLinear
 
 # ETTm1, univariate results, pred_len= 96 192 336 720
 for seed in 1 2 3
