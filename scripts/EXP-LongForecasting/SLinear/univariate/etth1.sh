@@ -9,8 +9,7 @@ fi
 if [ ! -d "./logs/LongForecasting/univariate" ]; then
     mkdir ./logs/LongForecasting/univariate
 fi
-seq_len=336
-model_name=RLinear
+model_name=SLinear
 
 # ETTh1, univariate results, pred_len= 24 48 96 192 336 720
 for seed in 1 2 3
@@ -21,15 +20,16 @@ do
     --is_training 1 \
     --root_path ./dataset/ \
     --data_path ETTh1.csv \
-    --model_id ETTh1_$seq_len'_'96 \
+    --model_id ETTh1_336_24 \
     --model $model_name \
     --data ETTh1 \
-    --features M \
-    --seq_len $seq_len \
+    --seq_len 336 \
+    --seed $seed \
     --pred_len $pred_len \
-    --enc_in 7 \
+    --enc_in 1 \
     --des 'Exp' \
-    --itr 1 --batch_size 32 --learning_rate 0.005 >logs/LongForecasting/$model_name'_'Etth1_$seq_len'_'$pred_len.log
+    --individual \
+    --itr 1 --batch_size 32 --feature S --learning_rate 0.005 >logs/LongForecasting/$model_name'_'fS_ETTh1_336_$pred_len.log
   done
 done
 
