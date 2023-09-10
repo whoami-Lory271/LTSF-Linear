@@ -9,6 +9,7 @@ fi
 if [ ! -d "./logs/LongForecasting/univariate" ]; then
     mkdir ./logs/LongForecasting/univariate
 fi
+seq_len=336
 model_name=Linear
 
 # ETTm1, univariate results, pred_len= 96 192 336 720
@@ -20,13 +21,14 @@ do
     --is_training 1 \
     --root_path ./dataset/ \
     --data_path ETTm2.csv \
-    --model_id ETTm2_336_96 \
+    --model_id ETTm2_$seq_len'_'$pred_len \
     --model $model_name \
     --data ETTm2 \
-    --seq_len 336 \
+    --features M \
+    --seq_len $seq_len \
     --pred_len $pred_len \
-    --enc_in 1 \
+    --enc_in 7 \
     --des 'Exp' \
-    --itr 1 --batch_size 32 --learning_rate 0.001 --feature S >logs/LongForecasting/$model_name'_'fS_ETTm2_336_96.log
+    --itr 1 --batch_size 32 --learning_rate 0.01 --individual
   done
 done
