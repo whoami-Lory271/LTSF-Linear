@@ -29,6 +29,6 @@ do
     --pred_len $pred_len \
     --enc_in 321 \
     --des 'Exp' \
-    --itr 1 --batch_size 16  --learning_rate 0.005 --individual
+    --itr 1 --batch_size 16  --learning_rate 0.001 --individual
   done
 done
