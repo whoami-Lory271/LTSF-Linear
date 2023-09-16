@@ -27,6 +27,6 @@ python -u run_longExp.py \
   --pred_len $pred_len \
   --enc_in 321 \
   --des 'Exp' \
-  --seed 1
+  --seed 1 \
   --itr 1 --batch_size 16  --learning_rate 0.001 --individual
 done
