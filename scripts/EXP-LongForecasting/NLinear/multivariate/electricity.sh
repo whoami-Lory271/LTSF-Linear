@@ -16,7 +16,7 @@ seq_len=336
 for pred_len in 168 #24 48 168 336 720
 do
 python -u run_longExp.py \
-  --is_training 0 \
+  --is_training 1 \
   --root_path ./dataset/ \
   --data_path electricity.csv \
   --model_id Electricity_$seq_len'_'$pred_len \
