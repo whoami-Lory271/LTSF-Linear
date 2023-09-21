@@ -13,7 +13,7 @@ model_name=NLinear
 seq_len=336
 
 # ETTm1, univariate results, pred_len= 96 192 336 720
-for pred_len in 168 #24 48 168 336 720
+for pred_len in 168 336 720 #24 48 168 336 720
 do
 python -u run_longExp.py \
   --is_training 1 \
